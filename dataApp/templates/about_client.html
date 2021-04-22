@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Client</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+<div class = wrapper>
+    <div class = "nav">
+        <a href="/main" class = "pagelink">Main Page</a>
+        <a href = "/" class = "pagelink">Log Out</a>
+    </div>
+    <h1 class = "aboutTitle">{{one_client.name}}</h1>
+    <div class = "about">
+        <label class = "aboutLabel">Therapist:</label>
+        <p class = "aboutInput">{{one_client.therapists.name}}</p>
+        <label class = "aboutLabel">Sessions per week:</label>
+        <p class = "aboutInput">{{one_client.sessions}}</p>
+        <label class = "aboutLabel">No Shows:</label>
+        <p class = "aboutInput">{{one_client.no_show}}</p>
+        <label class = "aboutLabel">Copay:</label>
+        <p class = "aboutInput">{{one_client.copay}}</p>
+        <label class = "aboutLabel">Received from Insurance:</label>
+        <p class = "aboutInput">{{ one_client.insurance_amt }}</p>
+        <label class = "aboutLabel">Billing total:</label>
+        <p class = "aboutInput">{{one_client.total_charges}}</p>
+        <label class = "aboutLabel">Amount Received:</label>
+        <p class = "aboutInput">{{one_client.copay}} + {{one_client.insurance_amt }}</p>
+        <label class = "aboutLabel">Last updated:</label>
+        <p class = "aboutInput">{{one_client.updated_at}}</p>
+    </div>
+</div>    
+</body>
+</html>

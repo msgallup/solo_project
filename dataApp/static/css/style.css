@@ -1,0 +1,315 @@
+* {
+    /* outline:  black 1px dotted; */
+
+}
+.wrapper{
+    width:  1000px;
+    min-height:  1000px;
+    background-color: rgb(202 224 241);
+    padding:  40px;
+    text-align:  center;
+}
+.registration{
+    display:  inline-block;
+    border:  black 2px solid;
+    height:  400px;
+    width:  45%;
+    padding:  15px;
+    color: darkslategrey;
+    text-align:  left;
+}
+.login{
+    display:  inline-block;
+    border:  black 2px solid;
+    height:  200px;
+    width:  45%;
+    padding:  15px;
+    vertical-align: top;
+    color: darkslategrey;
+    text-align:  left;
+}
+label{
+    display:  block;
+    font-size:  25px;
+    width:  20%;
+    display:  inline-block;
+    margin:  20px 0;
+}
+input{
+    width: 50%;
+    height: 30px; 
+    border: 1px black solid;
+    margin:  20px 0;    
+}
+.center{
+    border:  white solid 2px;
+    width:  600px;
+    display:  center;
+    padding: 10px 20px;
+    margin:  50px auto;
+}
+.button{
+    height:  35px;
+    width:  40%;
+    font-size:  20px;
+    margin:  40px 0;
+    background-color: #2f67ab;
+    color:  white;
+}
+.nav{
+    text-align:  right;
+}
+.nav a{
+    margin:  0 15px;
+}
+.addClient{
+    text-align:  left;
+    margin-top: 50px;
+    width:  700px;
+    height:  700px;
+    padding: 20px 20px;
+    margin:  50px 0;
+} 
+.client_border{
+    border:  white solid 2px;
+    width:  600px;
+    display:  center;
+    padding: 10px 20px;
+    margin:  50px auto; 
+}
+.client-input{
+    width:  40%;
+    margin:  10px 0;
+}
+.client-form{
+    width:  35%;
+    margin:  10px 0;
+    text-align:  left;
+}
+.addClientbutton{
+    height:  35px;
+    width:  40%;
+    font-size:  20px;
+    margin-top:  40px;
+    margin-left: 150px;
+    background-color: #2f67ab;
+}
+.update_button{
+    eight:  35px;
+    width:  40%;
+    font-size:  20px;
+    margin-top:  40px;
+    margin-left: 200px;
+    background-color: #2f67ab;
+
+}
+#money {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom:  100px;
+    background-color:  white;
+}
+#money td, #money th {
+    border: 1px solid #2f67ab;
+    padding: 8px;
+}
+#money tr:nth-child(even){background-color: #f2f2f2;}
+
+#money tr:hover {background-color: #ddd;}
+
+#money th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #2f67ab;
+    color: white;
+    text-align:  center;
+    border:  white 2px solid
+}
+#appts {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color:  white;
+}
+#appts td, #appts th {
+    border: 1px solid #2f67ab;
+    padding: 8px;
+}
+
+#appts tr:nth-child(even){background-color: #f2f2f2;}
+
+#appts tr:hover {background-color: #ddd;}
+
+#appts th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #2f67ab;
+    color: white;
+    margin-bottom:  100px;
+    text-align:  center;
+    border:  white 2px solid
+}
+#client_list {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color:  white;
+}
+#client_list  td, #client_list  th {
+    border: 1px solid #2f67ab;
+    padding: 8px;
+}
+
+#client_list  tr:nth-child(even){background-color: #f2f2f2;}
+
+#client_list  tr:hover {background-color: #ddd;}
+
+#client_list  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #2f67ab;
+    color: white;
+    text-align:  center;
+    border:  white 2px solid
+}   
+.btn{
+    background-color: #2f67ab;
+    width:  30%;
+    font-weight:  bold;
+    text-decoration:  uppercase;
+    font-weight:  bold;
+    color:  white;
+    font-size: 20px;
+    height:  35px;
+}
+.sub_heading{
+    text-align:  left;
+    margin-top:  50px;            
+    font-size:  24px;            
+}
+.logout{
+    margin-left: 80%;
+    color:  black;
+}
+.delete{
+    border:  none;
+    height:  20px;
+    width:  40px; 
+    display:   inline-block;   
+}
+.not_delete_btn{
+    display:  inline-block;
+    width:  200px;
+    height:  30px;
+    margin:  50px 50px;
+    font-size:  18px;
+    background-color:  #4f8bbf;
+    border:  black 1px solid;
+    color:  white;
+}
+.not_delete{
+    color:  white;
+}
+.delete_btn{
+    display:  inline-block;
+    width:  200px;
+    height:  30px;
+    margin:  50px 50px;
+    background-color:  #4f8bbf;;
+    border:  black 1px solid; 
+}
+.no{
+    color:  white;
+    text-decoration:  none; 
+}
+.delBtn{
+    border:  none;
+    margin:  0;
+    font-size:  18px;
+    width:  100px;
+    padding:  0px;
+    background-color:  transparent;
+    height:  25px;
+    text-align:  bottom;
+    color:  white
+}
+.alink{
+    font-size:  12px;
+    color:  black;
+    text-decoration:  none;
+}
+.centerBtn{
+    margin:  0 2px;
+}
+.alink:hover, .delBtn:hover, .nameLink:hover{
+    color: #4f8bbf;
+}
+.nameLink{
+    color:  black;
+}
+.pagelink{
+    color:  black;
+}
+.pagelink:hover{
+    color: #4f8bbf;  
+}
+.delete-page{
+    margin:  100px;
+}
+.delete-heading{
+    margin-top:  200px;
+    font-size:  26px;
+}
+.about-heading{
+    margin:  100px;
+    font-size:  26px;
+}
+.about{
+    text-align:  left;
+    margin-left:  60px;
+}
+.aboutLabel{
+    width:  400px;
+    height:  50px;
+    text-align:  left;
+    font-size:  24px;
+    display:  inline-block;
+    margin: 5px;
+}
+.aboutInput{
+    width:  400px;
+    height:  50px;
+    text-align:  left;
+    font-size:  24px;
+    display:  inline-block;
+    margin: 5px;
+}
+.aboutTitle{
+    margin: 100px auto;
+}
+/* .not_delete_btn:hover, delete_btn:hover{
+    color: red;  
+} */
+.editForm{
+    display:  center;
+    margin-top: 50px;
+    border:  white solid 2px;
+    width:  600px;
+    height:  400px;
+    padding: 100px 20px;
+    margin:  50px auto;
+} 
+.update_button{
+    background-color: #2f67ab;
+    width:  30%;
+    font-weight:  bold;
+    text-decoration:  uppercase;
+    font-weight:  bold;
+    color:  white;
+    font-size: 20px;
+    height:  35px; 
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Therapist</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <div class = wrapper>
+        <div class = "nav">
+            <a href = "/main" class = "pagelink">Main Page</a>
+            <a href = "/" class = "pagelink">Log Out</a>
+        </div>
+        
+
+        <div  class = "center">
+            <h1 class = "center_heading">Add Therapist</h1>
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/therapist/added" method="POST" class = addForm>
+                {% csrf_token %}   
+                <label>Name:</label>
+                <input = "text" name = "name"><br><br>
+                <label>Hours:</label>
+                <input = "number" name = "hours"><br><br>
+                <label>Wages:</label>
+                <input = "number" name = "wages"><br><br>
+                <button type="submit" class = "button">Add Therapist</button>
+            </form>
+        </div> 
+    </div>
+</body>
+</html>

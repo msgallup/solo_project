@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Client</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <div class = wrapper>
+        <div class = "nav">
+            <a href = "/main" class = "pagelink">Main Page</a>
+            <a href = "/" class = "pagelink">Log Out</a>
+        </div>
+        
+        <div  class = "client_border">
+            <h1 class = "center_heading">Add Client</h1>
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/client/added" method="POST" class = "addClient">
+                {% csrf_token %}   
+                <label class = "client-form">Name:</label>
+                <input type = "text" name = "name" class = "client-input"><br><br>
+                <label class = "client-form">Number of Sessions:</label>
+                <input type = "number" name = "sessions" class = "client-input"><br><br>
+                <label class = "client-form">Number of Evaluations</label>
+                <input type = "number" name="evaluation" class = "client-input"><br><br>
+                <label class = "client-form">Number of No Shows</label>
+                <input type="number" name="no_show" class = "client-input"><br><br>
+                <!-- <label class = "client-form">Therapist:</label>
+                <input type = "text" name = "therapist_who_treats_id" class = "client-input"><br><br> -->
+                <label class = "client-form">Insurance amt:</label>
+                <input type = "text" name = "insurance_amt" class = "client-input"><br><br>
+                <label class = "client-form">Copay:</label>
+                <input type = "text" name = "copay"class = "client-input"><br><br>
+                <label class = "client-form">Total Charges:</label>
+                <input type = "text" name = "total_charges" class = "client-input">
+                <div class="select">
+                    <label for="therapists">Therapist:</label>
+                    <select name="therapists">
+                    {% for therapist in all_therapists.all %}
+                        <option  value="{{ therapist.id }}">{{ therapist.name }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class = "addClientbutton">Add Client</button>
+            </form>
+        </div> 
+    </div>
+</body>
+</html>

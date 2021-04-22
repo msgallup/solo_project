@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+    <title>Log and Reg</title>
+</head>
+<body>
+    <div class = wrapper>
+        <h1 class = "center_heading">Login and Registration</h1>
+
+        <div class = "registration">
+            <h3 class = "center_heading">Registration</h3>
+
+            <!-- {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <form action="/users/create" method="POST">
+                {% csrf_token %}
+                <label>Name: <input type = "text" name = "name"></label><br><br>
+                <label>Email: <input type = "text" name = "email"></label><br><br>
+                <label>Password: <input type = "password" name = "password"></label><br><br>
+                <label>Password Confirmation: <input type = "password" name = "password_conf"></label><br><br>
+                <input type = "submit"  value="Create Account"><br><br>
+            </form>
+        </div>
+
+        <div class = "login">
+            <h3 class = "center_heading">Log In</h3>
+
+            <form action="/users/login" method="POST">
+                {% csrf_token %}
+                <label>Email: <input type ="text" name = "email"></label><br><br>
+                <label>Password: <input type = "password" name = "password"></label><br><br>
+                <input type = "submit"  value="Login"><br><br>
+            </form>
+        </div>
+        <div>
+            <p>Delete this User</p>
+            <input type = "submit"  value="Delete this User Account"> -->
+
+        </div>
+
+    </div>
+</body>
+</html>

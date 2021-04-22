@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Therapist</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <div class = wrapper>
+        <div class = "nav">
+            <a href = "/main" class = "pagelink">Main Page</a>
+            <a href = "/" class = "pagelink">Log Out</a>
+        </div>
+    
+        <div>
+            <h2 class = "center_heading_edit">Edit Therapist</h2>
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action= '/therapists/{{one_therapist.id}}/update' method="POST" class = "editForm">
+                {% csrf_token %}   
+                <label>Name:</label>
+                <input = "text" name = "name" value="{{one_therapist.name}}"><br><br>
+                <label>Hours:</label>
+                <input = "number" name = "hours" value="{{one_therapist.hours}}"><br><br>
+                <label>Wages:</label>
+                <input = "text" name = "wages" value="{{one_therapist.wages}}"><br><br>
+                <button type="submit" class = "update_button">Update</button>
+            </form>
+        </div> 
+        
+    </div>
+</body>
+</html>

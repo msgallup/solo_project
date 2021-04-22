@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <div class = wrapper>
+        <div class = "nav">
+            <a href = "/main">Main Page</a>
+            <a href = "/">Log Out</a>
+        </div>
+        <h1 class = "center_heading">Edit Client</h1>
+        <div  class = "center">
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/client/{{client_id}}/update" method="POST" class = "addClient">
+                {% csrf_token %}   
+                <label class = "client-form">Name:</label>
+                <input type = "text" name = "name" value="{{one_client.name}}" class = "client-input">
+                <label class = "client-form">Number of Sessions:</label>
+                <input type = "number" name = "sessions" class = "client-input" value="{{one_client.sessions}}">
+                <label class = "client-form">Number of Evaluations</label>
+                <input type = "number" name="evaluation" class = "client-input" value="{{one_client.evaluation}}">
+                <label class = "client-form">Number of No Shows</label>
+                <input type="number" name="no_show" class = "client-input" value="{{one_client.no_show}}">
+                <label class = "client-form">Therapist:</label>
+                <input type = "text" name = "therapist_who_treats" class = "client-input" value="{{one_client.therapist_who_treats.name}}">
+                <label class = "client-form" class = "client-form">Insurance amt:</label>
+                <input type = "text" name = "insurance_amt" class = "client-input" value="{{one_client.insurance_amt}}">
+                <label class = "client-form">Copay:</label>
+                <input type = "text" name = "copay" class = "client-input" value="{{one_client.copay}}">
+                <label class = "client-form">Total Charges:</label>
+                <input type = "text" name = "total_charges" class = "client-input" value="{{one_client.total_charges}}">
+                <button type="submit" class = "update_button">Update</button>
+            </form>
+        </div> 
+    </div>    
+</body>
+</html>

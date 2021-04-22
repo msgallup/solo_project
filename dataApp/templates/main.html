@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+</head>
+<body>
+    <div class = wrapper>
+            <a href = "/" class = "logout">Log Out</a>
+        
+        <h1 class = "center_heading">Data</h1>
+        <div>
+            <h3 class = "sub_heading">Financial</h3>
+            <table id = "money">
+                <thead> 
+                    <tr>
+                        <th>Therapist</th>
+                        <th>Hours</th>
+                        <th>Wages</th>
+                        <th>Total # of sessions</th>
+                        <th>Total Billed</th>
+                        <th>Total Received</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    {% for one_therapist in all_therapists.all %}
+                    {% for session in sessions %}
+                    <tr>
+                        <td><a href = "/therapists/{{one_therapist.id}}/about"  class = "nameLink">{{one_therapist.name}}</a></td>
+                        <td>{{one_therapist.hours}}</td>
+                        <td>${{one_therapist.wages}}</td>
+ 
+                            
+                                <td>{{ session.sessions__sum}}</td>
+                                <td>{{client.total_charges}}</td>
+                                <td>{{client.copay}} </td>
+                                                                  
+                    
+                    </tr>
+                    {% endfor %}
+                    {% endfor %}
+                    <tr>
+                        <td>Total:</td>
+                        <td>{{all_therapists.hours.count}}</td>
+                        <td>{{all_clients.wages.annotate}}</td>
+                        <td>{{all_clients.sessions}}</td>
+                        <td>{{all_clients.total_charges.sum}}</td>
+                        <td>{{all_clients.copay.sum}}</td>
+                        
+                    </tr>
+                
+                </tbody>
+            </table>
+        </div> 
+
+
+        <div>
+            <h3 class = "sub_heading">Therapist Detail</h3>
+            <table id = "appts">
+                <thead>
+                    <tr>
+                        <th>Therapist</th>
+                        <th># of Treatments</th>
+                        <th># of Evaluations</th>
+                        <th># 0f No-shows</th>
+                        <th>Total # of Sessions</th>
+                        <th>Action</th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    {% for one_therapist in all_therapists %}                        
+                    <tr>
+                        <td>
+                            <a href = "/therapists/{{one_therapist.id}}/about"  class="nameLink">
+                            {{one_therapist.name}}</a>
+                        </td>
+                        <td>{{one_therapist.clients.count}}</td>
+                        <td>
+                            {% for key, value in evaluation_dict.items %}
+                                {% if one_therapist.id == key %}
+                                    {% if value == None %}    
+                                        0
+                                    {% else %}
+                                    {{ value }}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for key, value in noshow_dict.items %}
+                                {% if one_therapist.id == key %}
+                                    {% if value == None %}    
+                                        0
+                                    {% else %}
+                                    {{ value }}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for key, value in session_dict.items %}
+                                {% if one_therapist.id == key %}
+                                    {% if value == None %}    
+                                        0
+                                    {% else %}
+                                    {{ value }}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href = "/therapists/{{one_therapist.id}}/about" class = "alink">View |</a>
+                            <a href = "/therapists/{{one_therapist.id}}/edit" class = "alink" class="centerBtn"> Edit   |</a>
+                            <a href = "/therapists/{{one_therapist.id}}/delete" class = "alink">Delete  </a>
+                        </td>
+                    </tr>    
+                    {% endfor %}
+                    
+                    <tr>
+                        <td>Total:</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <a href="/add_therapist"><input type = "submit"  value="Add a Therapist" class = "btn"></a>
+        </div> 
+        
+        <div>
+            <h3 class = "sub_heading">Client Detail</h3>
+            <table id = "client_list">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Therapist</th>
+                        <th>Action</th>
+                    </tr>                                               
+                </thead> 
+                <tbody>
+                    {% for one_client in all_clients.all %}
+                    <tr>
+                        <td ><a href = "/client/{{one_client.id}}/about" class = "nameLink"></a>{{one_client.name}}</a></td> 
+                        
+                        <td>{{one_client.therapists.name}}</td>
+                        <td>
+                            <a href = "/client/{{one_client.id}}/about" class = "alink">View  |</a>
+                            <a href = "/client/{{one_client.id}}/edit" class = "alink" class = "centerBtn"> Edit  |</a>
+                            <a href = "/client/{{one_client.id}}/delete" class = "alink">Delete  </a>
+                        </td>
+                    {% endfor %}
+                    </tr>                        
+                </tbody>
+            </table> 
+            <a href="/add_client"><input type = "submit"  value="Add a Client" class="btn"></a> 
+        </div> 
+
+    </div>
+</body>
+</html>

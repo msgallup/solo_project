@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Therapist</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <div class = wrapper>
+        <div class = "nav">
+            <a href = "/main" class = "pagelink">Main Page</a>
+            <a href = "/" class = "pagelink">Log Out</a>
+        </div>
+        <h1 class = "about-heading">Info About {{one_therapist.name}}</h1>
+        <div class = "about">
+            <label  class = "aboutLabel">Hours:  </label>
+            <p class = "aboutInput">{{one_therapist.hours}}</p>
+            <label class = "aboutLabel">Wages:</label>
+            <p class = "aboutInput">${{one_therapist.wages}}</p>
+            <div>
+                <!-- {% for clients in one_therapist.clients.all %} -->
+                <label class = "aboutLabel"># Clients:</label>
+                <p class = "aboutInput">{{one_therapist.clients.all.count}}</p>
+                <label class = "aboutLabel"># Evaluations:</label>
+                <p class = "aboutInput">{{one_therapist.clients.evaluation.count}}</p>
+                <label class = "aboutLabel"># Sessions:</label>
+                <p class = "aboutInput"></p>
+                <label class = "aboutLabel"># No Shows:</label>
+                <p class = "aboutInput"></p>
+                <label class = "aboutLabel">Billing Total:</label>
+                <p class = "aboutInput"> ${{all_clients.total_charges.annotate}</p>
+                <label class = "aboutLabel">Total Revenue:</label>
+                <p class = "aboutInput"> ${{revenue}}</p>
+                <label class = "aboutLabel">Last updated:</label>
+                <p class = "aboutInput"> {{one_therapist.updated_at}}</p>
+                <!-- {% endfor %} -->
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
+
+
+
+
